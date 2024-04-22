@@ -1,0 +1,44 @@
+.nav_logo{
+    width: 84rem;
+    cursor: pointer;
+}
+.nav_row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-family: 'BTCFont', sans-serif;
+}
+.nav_list{
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.nav_list a{
+    font-size: 14rem;
+}
+
+.connect_btn{
+    background-image:linear-gradient(to right,#fff59a,#fbf7d1);
+    white-space:nowrap;
+    border-radius:8rem;
+    color:#161616;
+    border: none;
+}
+
+
+@media (min-width: 750px) and (max-width: 1940px) {
+    .nav_row{
+        padding: 20rem 80rem;
+    }
+}
+
+@media (min-width: 750px){
+    .connect_btn{
+        padding: 16rem;
+    }
+}
+@media (min-width: 1280px){
+    .connect_btn{
+        font-size: 23rem;
+    }
+}

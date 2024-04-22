@@ -1,23 +1,31 @@
-import { useState } from 'react'
-import './App.css'
+// eslint-disable-next-line no-unused-vars
+import { useEffect } from 'react'
+import { Outlet } from "react-router-dom";
+import Nav from "./components/Nav";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    const handleResize = () => {
+      const { innerWidth,outerWidth } = window;
+      // 根据窗口宽度动态计算字体大小
+      const fontSize = innerWidth / outerWidth; // 假设小于 768px 使用 16px，否则使用 18px
+      document.documentElement.style.fontSize = `${fontSize}px`;
+    };
+
+    // 监听窗口尺寸变化
+    window.addEventListener('resize', handleResize);
+
+    // 组件卸载时移除事件监听
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <Nav />
+        <Outlet />
     </>
   )
 }
