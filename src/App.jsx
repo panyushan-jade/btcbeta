@@ -2,23 +2,51 @@
 import { useEffect } from 'react'
 import { Outlet } from "react-router-dom";
 import Nav from "./components/Nav";
+import useWindowSize from "./hooks/useWindowSize";
+
+function isPC() {
+  const userAgent = navigator.userAgent;
+  return !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+}
 
 function App() {
-
+  const { width } = useWindowSize();
+  console.log('width: ', width);
   useEffect(() => {
-    const handleResize = () => {
+
+    // const handleResize = () => {
+    //   const { innerWidth,outerWidth } = window;
+    //   console.log('outerWidth: ', outerWidth);
+    //   console.log('innerWidth: ', innerWidth);
+    //   const ratio = innerWidth / outerWidth;
+    //   let fontSize = innerWidth < 750 ? ratio +0.55 : ratio == 1 ? 1 : (ratio + 0.1);
+    //   // if(isMobile()){
+    //   //   fontSize = 
+    //   // }
+    //   document.documentElement.style.fontSize = `${fontSize}px`;
+    // };
+    // handleResize();
+    
+    const setRootFontSize = () => {
       const { innerWidth,outerWidth } = window;
-      // 根据窗口宽度动态计算字体大小
-      const fontSize = innerWidth / outerWidth; // 假设小于 768px 使用 16px，否则使用 18px
-      document.documentElement.style.fontSize = `${fontSize}px`;
-    };
-
-    // 监听窗口尺寸变化
-    window.addEventListener('resize', handleResize);
-
-    // 组件卸载时移除事件监听
+      if(isPC()){
+        const ratio = innerWidth / outerWidth;
+        let fontSize = innerWidth < 750 ? ratio +0.55 : ratio == 1 ? 1 : (ratio + 0.1);
+        document.documentElement.style.fontSize = `${fontSize}px`;
+      }else{
+        const designWidth = 750;
+        let fontSize = width > designWidth ? designWidth / width : width / designWidth;
+        if(isPC() && innerWidth == outerWidth){
+          fontSize = 1
+        }
+        document.documentElement.style.fontSize = fontSize + 'px';
+      }
+      
+    }
+    setRootFontSize()
+    window.addEventListener('resize', setRootFontSize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', setRootFontSize);
     };
   }, []);
 

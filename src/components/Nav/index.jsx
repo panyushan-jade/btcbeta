@@ -1,7 +1,7 @@
 import logo from "/public/logo.png";
 import { Dropdown, Row, Col } from "antd";
 import useWindowSize from '../../hooks/useWindowSize';
-
+import { MenuOutlined } from '@ant-design/icons';
 import styles from './index.module.css'
 
 function Nav() {
@@ -35,6 +35,7 @@ function Nav() {
 
   return (
       <Row className={styles.nav_row}>
+        {width < 750 ? <Col><MenuOutlined style={{color: '#fdffb5',fontSize:'38rem'}} /></Col> : null}
         <Col><img src={logo} className={styles.nav_logo} alt="logo" /></Col>
         {
             width < 750 ? null : <Row className={styles.nav_list}>
@@ -63,7 +64,7 @@ function Nav() {
             <Col><a onClick={(e) => e.preventDefault()}>About Us</a></Col>
         </Row>
         }
-        <Col>
+        <Col style={{marginLeft:'auto'}}>
             <button className={styles.connect_btn}>CONNECT WALLET</button>
         </Col>
       </Row>

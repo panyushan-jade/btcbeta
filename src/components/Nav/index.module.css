@@ -7,6 +7,7 @@
   flex-wrap: nowrap;
   align-items: center;
   font-family: 'BTCFont', sans-serif;
+  padding: 20rem 160rem;
 }
 .nav_list{
     width: 100%;
@@ -23,18 +24,36 @@
     border-radius:8rem;
     color:#161616;
     border: none;
+    font-family: scr;
+    padding: 19rem 23rem;
 }
 
 
 @media (min-width: 750px) and (max-width: 1940px) {
-    .nav_row{
-        padding: 20rem 80rem;
+
+}
+@media (min-width: 750px) and (max-width: 1280px) {
+    .connect_btn{
+        padding: 16rem;
+        font-size: 23rem;
     }
 }
 
 @media (min-width: 750px){
     .connect_btn{
         padding: 16rem;
+    }
+}
+@media (max-width: 750px){
+    .connect_btn{
+        font-size: 14rem;
+    }
+    .nav_logo{
+        margin-left: 38rem;
+        width: 94rem;
+    }
+    .nav_row{
+        padding: 20rem 42rem;
     }
 }
 @media (min-width: 1280px){
