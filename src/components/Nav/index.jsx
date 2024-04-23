@@ -1,10 +1,11 @@
 import logo from "/public/logo.png";
 import { Dropdown, Row, Col } from "antd";
 import useWindowSize from '../../hooks/useWindowSize';
-
+import useConnect from '../../hooks/useConnect'
 import styles from './index.module.css'
-
+import {AddrHandle} from '../../utils/tool'
 function Nav() {
+  const [Address, wallet, connected] = useConnect();
   const { width } = useWindowSize();
 
   const PARTICIPATE = [
@@ -64,7 +65,10 @@ function Nav() {
         </Row>
         }
         <Col>
-            <button className={styles.connect_btn}>CONNECT WALLET</button>
+            {
+              Address ? <button className={styles.connect_btn}>{AddrHandle(Address)}</button>:
+              <button className={styles.connect_btn} onClick={()=>connected('OKX')}>CONNECT WALLET</button>
+            }
         </Col>
       </Row>
   );
