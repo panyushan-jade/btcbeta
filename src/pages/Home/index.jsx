@@ -11,7 +11,9 @@ import doc from '../../assets/doc.png';
 import hand from '../../assets/hand.png';
 import purchase from '../../assets/purchase.png';
 import line from '../../assets/line.png';
-import lineMob from '../../assets/lineMob.png'
+import lineMob from '../../assets/lineMob.png';
+import council from '../../assets/council.png';
+import roadMap from '../../assets/roadmap.png'
 import styles from "./index.module.css";
 function Home() {
   const { width } = useWindowSize();
@@ -235,7 +237,65 @@ function Home() {
           
         </main>
       </div>
-      <div className={styles.council}></div>
+      <div className={styles.council}>
+        <header className={styles.council_header}>THE BTC BETA COUNCIL</header>
+        <main className={styles.council_content}>
+          <div className={styles.council_section}>
+            <section>AN ELITE CONSORTIUM OF INDUSTRY-LEADING DECISION MAKERS</section>
+            <section>USERS WHO LOCK 10K $ Y202 CAN ENTER THE BTC BETA DAO COUNCIL. BTC BETA ADOPTS A VOTING MECHANISM FOR CURRENCY LISTING. DAO COUNCIL MEMBERS HAVE THE POWER TO DECIDE WHICH PROJECTS WILL BE LAUNCHED ON BTC BETA THROUGH VOTING. OUR COUNCIL AND INTERNAL ANALYST TEAM REVIEW PROJECTS THROUGH A STRICT DUE DILIGENCE PROCESS.</section>
+            <button className={styles.council_btn}>JOIN THE COUNCIL</button>
+          </div>
+          <img src={council} alt="" className={styles.council_img} />
+        </main>
+      </div>
+      <div className={styles.roadMap}>
+        <header className={styles.roadMap_header}>ROADMAP</header>
+        <div className={styles.roadMap_title_list}>
+          <div>Q2.2024</div>
+          <div>Q3.2024</div>
+          <div>Q4.2024</div>
+          <div>Q1.2025</div>
+        </div>
+        <img src={roadMap} alt="" className={styles.roadMap_img} />
+        <div className={styles.roadMap_content}>
+          <div className={styles.roadMap_item}>
+              <div>BETA BUNNIES NFTS LAUNCHED</div>
+              <div>PUBLIC CASTING OF BTC BETA EXCLUSIVE TOKEN BEGINS</div>
+              <div>BTC BETA IDO PLATFORM LAUNCHED AND OFFICIALLY ACCEPTS PROJECT COIN APPLICATIONS</div>
+          </div>
+          <div className={styles.roadMap_item}>
+              <div>CONTINUE TO OPTIMIZE THE IDO PLATFORM TO ATTRACT MORE PROJECTS AND INVESTORS.</div>
+              <div>START COMMUNITY GOVERNANCE MECHANISM, ALLOWING PLATFORM TOKEN HOLDERS TO VOTE ON KEY PLATFORM MATTERS.</div>
+              <div>INTRODUCE DECENTRALIZED INDEXING PROTOCOL TO ENHANCE DATA QUERYING AND HANDLING ABILITIES OF DEVELOPERS.</div>
+          </div>
+          <div className={styles.roadMap_item}>
+              <div>DEVELOP A PROTOCOL FOR SEAMLESS CROSS-CHAIN TRANSFER BETWEEN BRC20 AND ERC20 ASSETS.</div>
+              <div>LAUNCH SMART CONTRACT AUDIT SERVICES TO ENHANCE THE SECURITY OF IDO PROJECTS ON THE PLATFORM.</div>
+              <div>DEVELOP NEW FEATURES, SUCH AS ENHANCED AI QUERY SERVICES, TO IMPROVE USER EXPERIENCE.</div>
+          </div>
+          <div className={styles.roadMap_item}>
+              <div>FURTHER EXPAND THE DEVELOPMENT OF THE CROSS-CHAIN PROTOCOL, SUPPORTING MORE EVM NETWORKS.</div>
+              <div>RESEARCH AND DESIGN BITCOIN LAYER 2 NETWORK ARCHITECTURE IN PREPARATION FOR THE IMPLEMENTATION OF SMART CONTRACT FUNCTIONALITY.</div>
+              <div>ADD NEW PARTNERSHIP RELATIONSHIPS TO EXPAND THE SERVICE RANGE OF THE ECOSYSTEM.</div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.subscribe}>
+        <div className={styles.subscribe_header}>NEVER WANT TO MISS A SALE</div>
+        <div className={styles.subscribe_content}>
+          <div className={styles.subscribe_title}>
+            <div>SIGN UP FOR OUR NEWSLETTER AND GET</div>
+            <div>THE LATEST NEWS ANDIVPDATES.</div>
+          </div>
+          <form action="" className={styles.subscribe_form}>
+            <div>
+              <input type="text" placeholder="EMAIL ADDRESS" />
+              <span style={{color:'#e53434'}}>*</span>
+            </div>
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

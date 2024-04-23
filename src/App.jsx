@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import { Outlet } from "react-router-dom";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import useWindowSize from "./hooks/useWindowSize";
 
 function isPC() {
@@ -11,7 +12,6 @@ function isPC() {
 
 function App() {
   const { width } = useWindowSize();
-  console.log('width: ', width);
   useEffect(() => {
 
     // const handleResize = () => {
@@ -54,6 +54,7 @@ function App() {
     <>
         <Nav />
         <Outlet />
+        <Footer />
     </>
   )
 }
